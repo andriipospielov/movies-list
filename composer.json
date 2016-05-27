@@ -1,0 +1,27 @@
+{
+  "name": "andrei/movies.local",
+  "authors": [
+    {
+      "name": "Andrii",
+      "email": "andriypospielov@gmail.com"
+    }
+  ],
+
+  "require-dev": {
+    "phpdocumentor/phpdocumentor": "2.*"
+  },
+
+  "require": {
+    "vrana/notorm": "dev-master"
+  },
+
+  "autoload": {
+    "classmap": [
+      "app/controllers/",
+      "app/models/",
+      "app/views"
+
+    ]
+  }
+
+}

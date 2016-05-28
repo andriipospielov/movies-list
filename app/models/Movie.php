@@ -1,6 +1,10 @@
 <?php
 
-class MovieModel
+class Movie
 {
+    function getAllMovies(){
+        DB::getInstance();
+    }
+    
 
 }

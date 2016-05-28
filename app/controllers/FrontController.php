@@ -19,7 +19,8 @@ class FrontController
 
         $this->_controller = !empty($splits[0]) ? ucfirst($splits[0]) . 'Controller' : 'IndexController';
 
-        $this->_action = !empty($splits[1]) ? $splits[1] . 'Action' : 'indexAction';
+
+        $this->_action = !empty($splits[1]) ? $splits[1]  : 'index';
 
         if (!empty($splits[2])) {
             $keys = $values = array();

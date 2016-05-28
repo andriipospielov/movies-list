@@ -2,10 +2,15 @@
 
 class IndexController implements IController
 {
-    public function indexAction()
+    public function index()
     {
         $fc = FrontController::getInstance();
-        /* Инициализация модели */
+        /*Model initializing*/
+        $model = new Movie();
+
+//        $model
+            
+
 
 //        $model = new FileModel();
         /*

@@ -1,0 +1,23 @@
+div#forms{
+    width: 350px;
+    text-align: right;
+}
+form{
+    border: solid #F5DEB3 3px;
+    background-color: #F5F5DC;
+    color: #8B4513;
+    padding: 10px;
+    margin: 10px;
+}
+input, select, button{
+    color: #A0522D;
+}
+label{
+    margin-left: 5px;
+    margin-right: 5px;
+    float: left;
+}
+div.button{
+    text-align: center;
+    padding: 5px;
+}

@@ -69,7 +69,6 @@ class Movie
 
     }
 
-
     public function deleteMovieById($id)
     {
 
@@ -78,6 +77,41 @@ class Movie
         $st = $this->_db->prepare($q);
         $st->bindParam(1, $id);
         $st->execute();
+
+    }
+
+    public function search()
+    {
+        $view = '';
+
+        if ($_POST['searchtype'] === 'm') {
+            $q = "SELECT ml.id, ml.name AS title, ml.year, f.name AS format, GROUP_CONCAT(DISTINCT a.name  ORDER BY a.name DESC SEPARATOR ', ') AS staff
+                FROM movies_list AS ml
+                  JOIN movies_to_actors AS m2a ON ml.id = m2a.m_id
+                  JOIN actors AS a ON m2a.a_id = a.id
+                  JOIN formats AS f ON ml.f_id = f.id   
+                WHERE ml.name LIKE ?
+        ";
+            $view = 'one';
+        } else {
+            $q = "SELECT ml.id, ml.name AS title, ml.year
+                FROM actors AS a
+                 JOIN movies_to_actors  AS m2a ON  a.id = m2a.a_id  
+                 JOIN movies_list AS ml ON m2a.m_id = ml.id
+                 WHERE a.name LIKE ?                
+        ";
+            $view = 'list';
+
+
+        }
+
+        $st = $this->_db->prepare($q);
+        $st->bindParam(1, $_POST['searchstr']);
+        $st->execute();
+        $res = $st->fetchAll();
+        $fc = FrontController::getInstance();
+        $fc->setBody(Renderer::render('/app/views/' . $view . '.php', $res));
+
 
     }
 

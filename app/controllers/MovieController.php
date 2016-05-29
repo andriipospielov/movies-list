@@ -46,5 +46,19 @@ class MovieController implements IController/*, IResourceController*/
 
     }
 
+    public function search()
+    {
+        $RenderResult = Renderer::render('/app/views/search.php', null);
+        $this->_fc->setBody($RenderResult);
+        
+    }
+
+    public function lookup()
+    {
+
+        $this->_model->search();
+
+    }
+
 
 }

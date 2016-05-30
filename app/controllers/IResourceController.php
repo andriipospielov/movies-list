@@ -6,11 +6,13 @@ interface IResourceController
 
     public function create();
 
-    public function show($id);
+    public function show($param);
 
-    public function store($id);
+    public function store();
 
-    public function update($id);
+    public function update();
 
-    public function destroy($id);
+    public function destroy();
+
+    public function search();
 }

@@ -1,6 +1,6 @@
 <?php
 
-class MovieController implements IController/*, IResourceController*/
+class MovieController implements IController
 
 {
 //    TODO: refactor model usage due to inductuted factory pattern
@@ -58,6 +58,11 @@ class MovieController implements IController/*, IResourceController*/
 
         $this->_model->search();
 
+    }
+    
+    public function update()
+    {
+        // TODO: Implement update() method.
     }
 
 

@@ -64,10 +64,7 @@ class Movie
     }
 
     public function save($data)
-    {
-
-
-    }
+    { }
 
     public function deleteMovieById($id)
     {

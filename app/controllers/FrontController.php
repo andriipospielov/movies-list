@@ -11,28 +11,25 @@ class FrontController
             self::$_instance = new self();
         return self::$_instance;
     }
-
+    /* Роутинг (в конструкторе и роут-методе) работает по принципу:
+     * host.name/controller/method/key/value/
+     * 
+     * */
     private function __construct()
     {
+        
         $request = $_SERVER['REQUEST_URI'];
         $splits = explode('/', trim($request, '/'));
-
         $this->_controller = !empty($splits[0]) ? ucfirst($splits[0]) . 'Controller' : 'IndexController';
-
-
         $this->_action = !empty($splits[1]) ? $splits[1]  : 'index';
-
         if (!empty($splits[2])) {
             $keys = $values = array();
             for ($i = 2, $cnt = count($splits); $i < $cnt; $i++) {
                 if ($i % 2 == 0) {
-
                     $keys[] = $splits[$i];
                 } else {
-
                     $values[] = $splits[$i];
-                }
-            }
+                }            }
             $this->_params = array_combine($keys, $values);
         }
     }
@@ -47,13 +44,13 @@ class FrontController
                     $method = $rc->getMethod($this->getAction());
                     $method->invoke($controller, $this->_params);
                 } else {
-                    throw new Exception("Action");
+                    throw new Exception("ActionException");
                 }
             } else {
-                throw new Exception("Interface");
+                throw new Exception("InterfaceException");
             }
         } else {
-            throw new Exception("Controller");
+            throw new Exception("ControllerException");
         }
     }
 

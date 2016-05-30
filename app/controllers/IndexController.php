@@ -6,7 +6,7 @@ class IndexController implements IController
     {
         $fc = FrontController::getInstance();
 
-        $output = 'Try one of the links above';
+        $output = 'Try one of the links above!';
 
         $fc->setBody($output);
     }

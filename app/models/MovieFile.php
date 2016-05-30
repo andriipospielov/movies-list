@@ -6,7 +6,7 @@
  * Date: 29.05.2016
  * Time: 3:04
  */
-//TODO: Refactor WHOLE MODEL!
+//TODO: Reproduce this file!
 class MovieFile extends Movie
 {
 
@@ -17,6 +17,7 @@ class MovieFile extends Movie
 
         foreach ($MoviesArray as $k => $MovieStr) {
             $MovieArr = explode("\n", $MovieStr);
+//            
             $title = trim(substr($MovieArr[0], strpos($MovieArr[0], ':') + 1));
             $year = trim(substr($MovieArr[1], strpos($MovieArr[1], ':') + 1));
             $format = trim(substr($MovieArr[2], strpos($MovieArr[2], ':') + 1));
@@ -27,7 +28,7 @@ class MovieFile extends Movie
 
 //            $MoviesArray[$k]= explode("\n", $value);
         }
-        echo 123;
+        
 
 
     }

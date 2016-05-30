@@ -102,7 +102,6 @@ class Movie
         ";
             $view = 'list';
 
-
         }
 
         $st = $this->_db->prepare($q);

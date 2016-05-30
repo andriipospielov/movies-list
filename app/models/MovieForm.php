@@ -12,7 +12,6 @@ class MovieForm extends Movie
     {
         switch ($data['type']) {
             case 'movie':
-//                var_dump($_POST);
                 $q = "INSERT INTO movies_list(name, f_id, year)
                       VALUES (:name, :format, :year)";
                 $st = $this->_db->prepare($q);
@@ -31,8 +30,6 @@ class MovieForm extends Movie
                     $st->execute();
 
                 }
-
-
                 break;
             case 'format':
                 $q = "INSERT INTO formats(name) VALUE (:name)";

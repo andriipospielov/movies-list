@@ -48,4 +48,14 @@
             <button type="submit">Submit</button>
         </div>
     </form>
+
+    <form enctype="multipart/form-data" action="/movie/store/type/movie" method = "post">
+        <label for="newMovie">Upload file containing data: </label>
+        <input type="hidden" name="MAX_FILE_SIZE" value="3000000" />
+        <input type="file" id="newMovie" name="movies_data"><br>
+        <div class="button">
+            <button type="submit">Submit</button>
+        </div>
+    </form>
+
 </div>
